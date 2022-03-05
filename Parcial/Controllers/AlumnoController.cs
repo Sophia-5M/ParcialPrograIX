@@ -21,12 +21,12 @@ namespace Parcial.Controllers
         {
             var clienteService = new AlumnoService();
             {
-                var cliente = clienteService.GetClient();
+                var cliente = clienteService.GetAlumno();
                 if (cliente != null)
                 {
                     return Ok(cliente);
                 }
-                return NotFound("Mensaje: There are no clients");
+                return NotFound("Mensaje: There are no students");
             }
         }
 
@@ -36,31 +36,13 @@ namespace Parcial.Controllers
         {
             var alumnoService = new AlumnoService();
             {
-                var alumno = alumnoService.GetClientById(id);
+                var alumno = alumnoService.GetAlumnoByID(id);
                 if (alumno != null)
                 {
                     return Ok(alumno);
                 }
                 return NotFound("Mensaje: There is no student with ID: " + id);
             }
-        }
-
-        // POST api/<AlumnoController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/<AlumnoController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<AlumnoController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }

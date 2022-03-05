@@ -13,10 +13,10 @@ namespace Parcial.Services
         private SqlConnection _Conn = new SqlConnection();
         private static SqlConnection GetSqlConnection()
         {
-            return new SqlConnection(@"Data Source=localhost\DESKTOP-SSGKA2E\Sophia; Initial Catalog=ParcialPrograIX; Integrated Security=True; Pooling=False");
+            return new SqlConnection(@"Data Source=localhost\Sophia; Initial Catalog=PPIX; Integrated Security=True; Pooling=False");
         }
 
-        public Alumno GetClientById(int id)
+        public Alumno GetAlumnoByID(int id)
         {
             _Conn = GetSqlConnection();
             _Conn.Open();
@@ -25,7 +25,7 @@ namespace Parcial.Services
             return cliente.Count != 0 ? cliente.First() : null;
         }
 
-        public IEnumerable<Alumno> GetClient()
+        public IEnumerable<Alumno> GetAlumno()
         {
             _Conn = GetSqlConnection();
             _Conn.Open();
